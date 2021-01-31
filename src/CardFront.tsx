@@ -2,26 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-  margin-bottom: 10px;
-  margin-right: 10px;
-  width: 120px;
+  box-sizing: border-box;
+  width: 140px;
+  height: 140px;
 
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
 
   :hover {
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.4);
   }
+
+  border-radius: 5px;
 `;
 
-const StyledImage = styled.img`
+const StyledImage = styled.div.attrs(() => {})`
+  background-image: url(${(props) => props.imageUrl});
+  background-position: center center;
+  background-repeat: no-repeat;
+
   width: 100%;
-  vertical-align: middle;
+  height: 85%;
+
+  border-radius: 5px 5px 0px 0px;
 `;
 
 const StyledLabel = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
   background: lavender;
-  padding: 0.5em;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 type Props = {
@@ -35,7 +47,7 @@ const CardFront = ({
 }: Props) => {
   return (
     <StyledContainer>
-      <StyledImage src={imageUrl} />
+      <StyledImage imageUrl={imageUrl} />
       <StyledLabel>
           Label
       </StyledLabel>
@@ -44,7 +56,7 @@ const CardFront = ({
 };
 
 CardFront.defaultProps = {
-  imageUrl: 'https://www.w3schools.com/howto/img_avatar.png',
+  imageUrl: 'http://placehold.it/200x400',
   label: null,
 };
 
