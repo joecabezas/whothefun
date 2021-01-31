@@ -1,27 +1,25 @@
 import React from 'react';
 
-type Dimension = {
-  width: number;
-  height: number;
-};
+import Card from './Card';
 
 type Props = {
-  dimension: Dimension;
 };
 
-const Board = ({dimension}: Props) => {
-  const [currentDimension, setCurrentDimension] = React.useState<Dimension>(
-      dimension,
-  );
+const Board = ({}: Props) => {
+  const cardNumber = 9;
 
-  return <>Board</>;
+  const createCards = () => {
+    const cards = [];
+    for (let i = 0; i < cardNumber; i++) {
+      cards.push(<Card />);
+    }
+    return cards;
+  };
+
+  return <>{createCards()}</>;
 };
 
 Board.defaultProps = {
-  dimension: {
-    width: 1,
-    height: 1,
-  },
 };
 
 export default Board;
