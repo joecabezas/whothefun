@@ -1,13 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-
-
-
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-
-
 
 /*
  * We've enabled HtmlWebpackPlugin for you! This generates a html
