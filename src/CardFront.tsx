@@ -2,10 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-  box-shadow: 0 0px 10px 0 rgba(0,0,0,0.2);
   margin-bottom: 10px;
   margin-right: 10px;
   width: 120px;
+
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  transition: 0.3s;
+
+  :hover {
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.4);
+  }
 `;
 
 const StyledImage = styled.img`
@@ -31,7 +37,7 @@ const CardFront = ({
     <StyledContainer>
       <StyledImage src={imageUrl} />
       <StyledLabel>
-        Label
+          Label
       </StyledLabel>
     </StyledContainer>
   );
