@@ -12,7 +12,7 @@ type Props = {
 };
 
 const Board = ({}: Props) => {
-  const cardNumber = 9;
+  const cardNumber = 20;
 
   const createCards = () => {
     const cards = [];
