@@ -11,6 +11,8 @@ const StyledContainer = styled.div`
 `;
 
 type Props = {
+  flippable: boolean;
+  onCardClick: (cardIndex: number) => void;
 };
 
 type CardData = {
@@ -18,15 +20,21 @@ type CardData = {
   label: string;
 }
 
-const Board = ({}: Props) => {
+const Board = ({
+  flippable,
+  onCardClick,
+}: Props) => {
   const createCards = () => {
     const cards: React.ReactNode[] = [];
     DeckExample.cards.forEach((card: CardData, index: number) => {
       cards.push(
           <Card
-            key={index}
+            flippable={flippable}
             imageUrl={card.imageUrl}
+            index={index}
+            key={index}
             label={card.label}
+            onClick={onCardClick}
           />,
       );
     });

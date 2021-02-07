@@ -30,7 +30,8 @@ const StyledImage = styled.div.attrs(() => {})`
 
 const StyledLabel = styled.div`
   font-family: Arial, Helvetica, sans-serif;
-  background: lavender;
+  background: ghostwhite;
+  border-radius: 0px 0px 5px 5px;
   height: 15%;
   display: flex;
   justify-content: center;

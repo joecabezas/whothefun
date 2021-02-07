@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Board from './Board';
+import SelectCard from './SelectCard';
 
 const App = () => {
   return (
-    <Board />
+    <SelectCard />
   );
 };
 

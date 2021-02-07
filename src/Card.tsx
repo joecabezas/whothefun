@@ -14,14 +14,26 @@ const StyledContainer = styled.div`
 const flipTime = 0.3;
 
 type Props = {
+  flippable: boolean;
   imageUrl: string;
+  index: number
   label: string;
+  onClick: (cardIndex: number) => void;
 };
 
-const Card = ({imageUrl, label}: Props) => {
+const Card = ({
+  flippable,
+  imageUrl,
+  label,
+  onClick,
+  index,
+}: Props) => {
   const [isFlipped, setIsFlipped] = React.useState(false);
 
   const onClickHandler = (_e: any) => {
+    onClick(index);
+    if (!flippable) return;
+
     setIsFlipped(!isFlipped);
   };
 
@@ -43,6 +55,7 @@ const Card = ({imageUrl, label}: Props) => {
 
 Card.defaultProps = {
   imageUrl: null,
+  flippable: true,
 };
 
 export default Card;
