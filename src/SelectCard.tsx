@@ -1,19 +1,32 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Board from './Board';
+import {selectCard} from './features/game/gameSlice';
+import {SelectCardPayload} from './features/game/gameSlice';
 
-const SelectCard = () => {
+type Props = {
+  selectCard: (payload: SelectCardPayload) => void
+};
+
+const SelectCard = ({selectCard}: Props) => {
   const onCardClickHandler = (cardIndex: number) => {
     console.log(cardIndex);
+    selectCard({selectedCardIndex: cardIndex});
   };
 
   return (
-    <Board
-      onCardClick={onCardClickHandler}
-      flippable={false}
-    />
+    <>
+      <h1>Select a card</h1>
+      <Board
+        onCardClick={onCardClickHandler}
+        flippable={false}
+      />
+    </>
   );
 };
 
-export default SelectCard;
-
+export default connect(
+    null,
+    {selectCard},
+)(SelectCard);
