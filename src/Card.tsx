@@ -18,7 +18,7 @@ type Props = {
   imageUrl: string;
   index: number
   label: string;
-  onClick: (cardIndex: number) => void;
+  onClick?: (cardIndex: number) => void;
 };
 
 const Card = ({
@@ -31,7 +31,7 @@ const Card = ({
   const [isFlipped, setIsFlipped] = React.useState(false);
 
   const onClickHandler = (_e: any) => {
-    onClick(index);
+    if (onClick) onClick(index);
     if (!flippable) return;
 
     setIsFlipped(!isFlipped);

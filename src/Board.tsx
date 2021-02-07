@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
 
 type Props = {
   flippable: boolean;
-  onCardClick: (cardIndex: number) => void;
+  onCardClick?: (cardIndex: number) => void;
 };
 
 type CardData = {
@@ -49,6 +49,7 @@ const Board = ({
 };
 
 Board.defaultProps = {
+  flippable: true,
 };
 
 export default Board;

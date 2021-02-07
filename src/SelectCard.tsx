@@ -11,7 +11,6 @@ type Props = {
 
 const SelectCard = ({selectCard}: Props) => {
   const onCardClickHandler = (cardIndex: number) => {
-    console.log(cardIndex);
     selectCard({selectedCardIndex: cardIndex});
   };
 

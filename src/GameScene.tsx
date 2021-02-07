@@ -3,20 +3,20 @@ import {connect} from 'react-redux';
 
 import {RootState} from './index';
 
-import SelectCard from './SelectCard';
-import GameScene from './GameScene';
-
 import cardSelectedIndexSelector
   from './features/game/CardSelectedIndexSelector';
 
+import Board from './Board';
+
 type Props = {
-  cardSelectedIndex: number
+  cardSelectedIndex: number;
 };
 
-const App = ({cardSelectedIndex}: Props) => {
+const GameScene = ({cardSelectedIndex}: Props) => {
   return (
     <>
-      {(cardSelectedIndex === null) ? <SelectCard /> : <GameScene />}
+      <h1>Card selected index: {cardSelectedIndex}</h1>
+      <Board />
     </>
   );
 };
@@ -25,4 +25,4 @@ const mapStateToProps = (state: RootState) => ({
   cardSelectedIndex: cardSelectedIndexSelector(state),
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(GameScene);
