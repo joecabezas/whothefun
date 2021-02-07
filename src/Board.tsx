@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Card from './Card';
 
+import DeckExample from '../data/deck_example.json';
+
 const StyledContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -11,14 +13,23 @@ const StyledContainer = styled.div`
 type Props = {
 };
 
-const Board = ({}: Props) => {
-  const cardNumber = 20;
+type CardData = {
+  imageUrl: string;
+  label: string;
+}
 
+const Board = ({}: Props) => {
   const createCards = () => {
-    const cards = [];
-    for (let i = 0; i < cardNumber; i++) {
-      cards.push(<Card key={i} />);
-    }
+    const cards: React.ReactNode[] = [];
+    DeckExample.cards.forEach((card: CardData, index: number) => {
+      cards.push(
+          <Card
+            key={index}
+            imageUrl={card.imageUrl}
+            label={card.label}
+          />,
+      );
+    });
     return cards;
   };
 

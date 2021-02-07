@@ -50,7 +50,7 @@ const CardFront = ({
     <StyledContainer>
       <StyledImage imageUrl={imageUrl} />
       <StyledLabel>
-          Label
+        {label}
       </StyledLabel>
     </StyledContainer>
   );

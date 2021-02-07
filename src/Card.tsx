@@ -11,15 +11,17 @@ const StyledContainer = styled.div`
   margin-right: 10px;
 `;
 
+const flipTime = 0.3;
+
 type Props = {
   imageUrl: string;
-  flipTime: number;
+  label: string;
 };
 
-const Card = ({imageUrl, flipTime}: Props) => {
+const Card = ({imageUrl, label}: Props) => {
   const [isFlipped, setIsFlipped] = React.useState(false);
 
-  const onClickHandler = (e: any) => {
+  const onClickHandler = (_e: any) => {
     setIsFlipped(!isFlipped);
   };
 
@@ -29,7 +31,10 @@ const Card = ({imageUrl, flipTime}: Props) => {
         flipSpeedBackToFront={flipTime}
         flipSpeedFrontToBack={flipTime}
         isFlipped={isFlipped}>
-        <CardFront />
+        <CardFront
+          imageUrl={imageUrl}
+          label={label}
+        />
         <CardBack />
       </ReactCardFlip>
     </StyledContainer>
@@ -38,7 +43,6 @@ const Card = ({imageUrl, flipTime}: Props) => {
 
 Card.defaultProps = {
   imageUrl: null,
-  flipTime: 0.3,
 };
 
 export default Card;
