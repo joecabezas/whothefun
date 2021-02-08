@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "gameVersion": 0.1,
+    "deckName": "Example Deck",
+    "author": "k014"
+  },
+  "cards": [
+    {
+      "label": "label1",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label2",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label3",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label4",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label5",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label6",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label7",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label8",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label9",
+      "imageUrl": "https://place-hold.it/300x200"
+    },
+    {
+      "label": "label10",
+      "imageUrl": "https://place-hold.it/300x200"
+    }
+  ]
+}
