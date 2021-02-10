@@ -13,7 +13,7 @@ type Props = {
   cardSelectedIndex: number
 };
 
-const App = ({cardSelectedIndex}: Props) => {
+const Game = ({cardSelectedIndex}: Props) => {
   return (
     <>
       {(cardSelectedIndex === null) ? <SelectCard /> : <GameScene />}
@@ -25,4 +25,4 @@ const mapStateToProps = (state: RootState) => ({
   cardSelectedIndex: cardSelectedIndexSelector(state),
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Game);

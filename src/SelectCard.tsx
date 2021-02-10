@@ -5,11 +5,18 @@ import Board from './Board';
 import {selectCard} from './features/game/gameSlice';
 import {SelectCardPayload} from './features/game/gameSlice';
 
+import deckJsonObjectSelector
+  from './features/game/DeckJsonObjectSelector';
+
 type Props = {
+  deckObject: any,
   selectCard: (payload: SelectCardPayload) => void
 };
 
-const SelectCard = ({selectCard}: Props) => {
+const SelectCard = ({
+  selectCard,
+  deckObject,
+}: Props) => {
   const onCardClickHandler = (cardIndex: number) => {
     selectCard({selectedCardIndex: cardIndex});
   };
@@ -18,6 +25,7 @@ const SelectCard = ({selectCard}: Props) => {
     <>
       <h1>Select a card</h1>
       <Board
+        deckObject={deckObject}
         onCardClick={onCardClickHandler}
         flippable={false}
       />
@@ -25,7 +33,11 @@ const SelectCard = ({selectCard}: Props) => {
   );
 };
 
+const mapStateToProps = (state: any) => ({
+  deckObject: deckJsonObjectSelector(state),
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     {selectCard},
 )(SelectCard);

@@ -3,16 +3,16 @@ import styled from 'styled-components';
 
 import Card from './Card';
 
-import DeckExample from '../data/deck_example.json';
-
 const StyledContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
 
 type Props = {
-  flippable: boolean;
-  onCardClick?: (cardIndex: number) => void;
+  // TODO replace any with a deck type
+  deckObject: any,
+  flippable: boolean,
+  onCardClick?: (cardIndex: number) => void,
 };
 
 type CardData = {
@@ -21,12 +21,17 @@ type CardData = {
 }
 
 const Board = ({
+  deckObject,
   flippable,
   onCardClick,
 }: Props) => {
   const createCards = () => {
     const cards: React.ReactNode[] = [];
-    DeckExample.cards.forEach((card: CardData, index: number) => {
+
+    console.log(deckObject);
+    if (!deckObject?.cards) return cards;
+
+    deckObject.cards.forEach((card: CardData, index: number) => {
       cards.push(
           <Card
             flippable={flippable}

@@ -13,8 +13,10 @@ import {
 import gameSliceReducer from './features/game/gameSlice';
 import deckSliceReducer from './features/game/deckSlice';
 
-import App from './App';
 import CreateDeck from './CreateDeck';
+import DeckImport from './DeckImport';
+import Game from './Game';
+import Home from './Home';
 
 const store = configureStore({
   reducer: {
@@ -24,17 +26,22 @@ const store = configureStore({
 });
 
 ReactDOM.render(
+
     <Provider store={store}>
       <HashRouter>
         <Switch>
           <Route path="/" exact>
-            home
+            <Home />
           </Route>
           <Route path="/createdeck" exact>
             <CreateDeck />
           </Route>
-          <Route path="/cardselect" exact>
-            <App />
+          <Route path="/deck/:deckData" exact>
+            <DeckImport />
+          </Route>
+          <Route path="/play" exact>
+            play
+            <Game />
           </Route>
         </Switch>
       </HashRouter>
