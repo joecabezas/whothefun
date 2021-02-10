@@ -5,7 +5,7 @@ import Board from './Board';
 import {selectCard} from './features/game/gameSlice';
 import {SelectCardPayload} from './features/game/gameSlice';
 
-import deckJsonObjectSelector
+import deckObjectSelector
   from './features/game/DeckJsonObjectSelector';
 
 type Props = {
@@ -34,7 +34,7 @@ const SelectCard = ({
 };
 
 const mapStateToProps = (state: any) => ({
-  deckObject: deckJsonObjectSelector(state),
+  deckObject: deckObjectSelector(state),
 });
 
 export default connect(

@@ -2,12 +2,12 @@ import {createSelector} from '@reduxjs/toolkit';
 
 import {RootState} from '../../index';
 
-const selectDeckJsonObject = (state: RootState) => state.deck.jsonObject;
+const selectDeckObject = (state: RootState) => state.deck.deckObject;
 
-const deckJsonObjectSelector = createSelector(
-    [selectDeckJsonObject],
-    (selectDeckJsonObject) => selectDeckJsonObject,
+const deckObjectSelector = createSelector(
+    [selectDeckObject],
+    (selectDeckObject) => selectDeckObject,
 );
 
-export default deckJsonObjectSelector;
+export default deckObjectSelector;
 

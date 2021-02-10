@@ -1,5 +1,6 @@
 import React from 'react';
 import pako from 'pako';
+import {connect} from 'react-redux';
 
 import {useRouteMatch} from 'react-router-dom';
 import Board from './Board';
@@ -47,5 +48,4 @@ const DeckImport = ({}: Props) => {
   );
 };
 
-export default DeckImport;
-
+export default connect(null)(DeckImport);

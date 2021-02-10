@@ -5,7 +5,7 @@ import {RootState} from './index';
 
 import cardSelectedIndexSelector
   from './features/game/CardSelectedIndexSelector';
-import deckJsonObjectSelector
+import deckObjectSelector
   from './features/game/DeckJsonObjectSelector';
 
 import Board from './Board';
@@ -31,7 +31,7 @@ const GameScene = ({
 
 const mapStateToProps = (state: RootState) => ({
   cardSelectedIndex: cardSelectedIndexSelector(state),
-  deckObject: deckJsonObjectSelector(state),
+  deckObject: deckObjectSelector(state),
 });
 
 export default connect(mapStateToProps)(GameScene);

@@ -4,17 +4,20 @@ import {connect} from 'react-redux';
 import Board from './Board';
 import DeckLink from './DeckLink';
 
-import {setDeckJsonData} from './features/game/deckSlice';
+import {setDeckObject} from './features/game/deckSlice';
 import {DeckPayload} from './features/game/deckSlice';
 
 import DeckExample from '../data/deck_example.json';
 
+import deckObjectSelector
+  from './features/game/DeckJsonObjectSelector';
+
 type Props = {
-  setDeckJsonData: (jsonObject: DeckPayload) => void
+  deckObject: any,
+  setDeckObject: (jsonObject: DeckPayload) => void
 };
 
-const CreateDeck = ({setDeckJsonData}: Props) => {
-  const [deckObject, setDeckObject] = React.useState(DeckExample);
+const CreateDeck = ({deckObject, setDeckObject}: Props) => {
   const [value, setValue] = React.useState(
       JSON.stringify(DeckExample, null, 2),
   );
@@ -29,7 +32,7 @@ const CreateDeck = ({setDeckJsonData}: Props) => {
   };
 
   const onClickHandler = (_e: any) => {
-    setDeckJsonData({jsonObject: deckObject});
+    setDeckObject({deckObject: deckObject});
   };
 
   return (
@@ -57,7 +60,11 @@ const CreateDeck = ({setDeckJsonData}: Props) => {
   );
 };
 
+const mapStateToProps = (state: any) => ({
+  deckObject: deckObjectSelector(state),
+});
+
 export default connect(
-    null,
-    {setDeckJsonData},
+    mapStateToProps,
+    {setDeckObject},
 )(CreateDeck);

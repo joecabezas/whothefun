@@ -1,20 +1,20 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 type DeckPayload = {
-  jsonObject: object
+  deckObject: object
 };
 
 const deckSlice = createSlice({
   name: 'deck',
-  initialState: {jsonObject: null},
+  initialState: {deckObject: null},
   reducers: {
-    setDeckJsonData: (state, action: PayloadAction<DeckPayload>) => {
-      state.jsonObject = action.payload.jsonObject;
+    setDeckObject: (state, action: PayloadAction<DeckPayload>) => {
+      state.deckObject = action.payload.deckObject;
     },
   },
 });
 
-export const {setDeckJsonData} = deckSlice.actions;
+export const {setDeckObject} = deckSlice.actions;
 export default deckSlice.reducer;
 export {DeckPayload};
 
